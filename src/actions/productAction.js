@@ -4,7 +4,6 @@ import {actionType} from "../const";
 
 const productAPIURL=process.env.REACT_APP_PRODUCT_API_URL;
 const APIKEY=process.env.REACT_APP_API_KEY;
-const corsProxy = 'https://cors-anywhere.herokuapp.com/';
 
 
 const fetchProducts = (sortingID, page, bodyData) => {
@@ -12,7 +11,7 @@ const fetchProducts = (sortingID, page, bodyData) => {
         dispatch(setCurrentPage(page));
         try {
             const res = await axios.post(
-                `${corsProxy}${productAPIURL}sortingId=${sortingID}&page=${page}&mykey=${APIKEY}`,
+                `${productAPIURL}sortingId=${sortingID}&page=${page}&mykey=${APIKEY}`,
                 bodyData
             );
             const products = res.data.rs.products;
