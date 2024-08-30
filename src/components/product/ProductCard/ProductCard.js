@@ -7,16 +7,8 @@ import {useSelector} from "react-redux";
 
 const ProductCard = ({ product, images, colorImages, index, isSmallScreen}) => {
     // console.log('product:', product)
-    console.log('images:', images)
-    const updatedImages = images?.map(imageArray =>
-        imageArray.map(imageUrl =>
-            imageUrl.replace(
-                'http://api-lulu.hibitbyte.com/static/images',
-                'https://secure-proxy-server.vercel.app/images'
-            )
-        )
-    );
-    console.log('images:', images)
+    // console.log('images:', images)
+   
 
     const [imageIndex, setImageIndex] = useState(0);
     // console.log('imageIndex:', imageIndex)
@@ -43,9 +35,9 @@ const ProductCard = ({ product, images, colorImages, index, isSmallScreen}) => {
 
     // Helper function to safely access image source
     const getImageSrc = () => {
-        if (updatedImages&&updatedImages[imageIndex]) {
+        if (images&&images[imageIndex]) {
             // Use conditional chaining and nullish coalescing
-            return updatedImages[imageIndex][isHovered ? 1 : 0] ?? undefined;
+            return images[imageIndex][isHovered ? 1 : 0] ?? undefined;
         }
         return undefined;
     };

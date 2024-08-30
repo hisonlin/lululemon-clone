@@ -3,7 +3,7 @@ import {actionType} from "../const";
 // import { saveAs } from 'file-saver';
 
 const APIKEY=process.env.REACT_APP_API_KEY;
-const proxyURL=process.env.REACT_APP_PROXY_URL;
+const productURL = process.env.REACT_APP_PRODUCT_API_URL;
 
 
 const fetchProducts = (sortingID, page, bodyData) => {
@@ -11,7 +11,7 @@ const fetchProducts = (sortingID, page, bodyData) => {
         dispatch(setCurrentPage(page));
         try {
             const res = await axios.post(
-                `${proxyURL}/product/allProducts?sortingId=${sortingID}&page=${page}&mykey=${APIKEY}`,
+                `${productURL}sortingId=${sortingID}&page=${page}&mykey=${APIKEY}`,
                 bodyData
             );
             const products = res.data.rs.products;
