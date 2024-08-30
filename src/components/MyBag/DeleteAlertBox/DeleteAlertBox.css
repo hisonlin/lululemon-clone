@@ -1,0 +1,29 @@
+.deleteAlertBackground{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(95, 95, 95, 0.5);
+    position: fixed; /* Ensure it covers the viewport */
+    top: 0;
+    left: 0;
+    z-index: 998; /* Ensure it is behind the form container */
+}
+
+.deleteAlertContainer {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fafafa;
+    z-index: 999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 1.5rem;
+}
+
+@media (max-width: 985px) {
+    .deleteAlertContainer {
+        width: 90%;
+    }
+}

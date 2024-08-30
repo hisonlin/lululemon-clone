@@ -1,0 +1,17 @@
+.paymentRow {
+    display: flex;
+}
+
+.paymentRow > div:first-child {
+    flex-basis: 50%;
+}
+
+.paymentRow > div:nth-child(2) {
+    flex-basis: 20%;
+    font-weight: 700;
+}
+
+.paymentRow > div:last-child {
+    flex-basis: 30%;
+}
+

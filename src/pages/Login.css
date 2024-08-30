@@ -1,0 +1,49 @@
+.LoginContainer {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.LoginHeader {
+  font-size: 1.375rem;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 600;
+  line-height: 1.0909090909;
+  padding: 20px 0;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.signInBtn {
+  background-color: red;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  width: 450px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.formControl {
+  width: 450px;
+}
+
+@media (max-width: 985px) {
+  .signInBtn {
+    width: 300px;
+  }
+  .formControl {
+    width: 300px;
+  }
+}
+
+/*# sourceMappingURL=Login.css.map */

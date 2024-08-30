@@ -1,0 +1,90 @@
+.reviews {
+    display: flex;
+    max-width: 85.75rem;
+    flex-direction: column;
+    padding: 0 0.78125rem;
+}
+
+.reviewsHeader {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.reviewsTop {
+    width: 100%;
+    display: flex;
+    margin-bottom: 2rem;
+    justify-content: space-between;
+
+}
+
+.reviewsTopLeft {
+    width: 33.33%;
+}
+
+.reviewsTopCenter {
+    width: 33.33%;
+}
+
+
+
+.reviewsTopRight {
+    width: 33.33%;
+    display: flex;
+    justify-content: end;
+}
+
+.reviewsBottom {
+    display: flex;
+    gap: 1rem;
+}
+
+.reviewsBottomLeft{
+    box-sizing: border-box;
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.reviewsBottomRight{
+    box-sizing: border-box;
+    width: 66.66%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+@media (max-width: 985px){
+    .reviewsTop {
+        flex-direction: column;
+    }
+
+    .reviewsTopLeft {
+        width: 100%;
+    }
+
+    .reviewsTopCenter {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .reviewsTopRight {
+        width: 100%;
+        display: block;
+    }
+
+    .reviewsBottom {
+        flex-direction: column;
+    }
+
+    .reviewsBottomLeft{
+        width: 100%;
+    }
+
+    .reviewsBottomRight{
+        width: 100%;
+    }
+}

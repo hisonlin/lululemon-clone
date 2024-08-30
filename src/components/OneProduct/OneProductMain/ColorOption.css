@@ -1,0 +1,38 @@
+.colorOptions .MuiRadio-root {
+    margin-left: 0;
+    padding-left: 0;
+    margin-right: 0.6rem;
+}
+.colorOptions .MuiRadio-root img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+.colorOptions .MuiRadio-root.Mui-checked .checkedIcon {
+    position: relative;
+    display: inline-block;
+}
+.colorOptions .MuiRadio-root.Mui-checked .checkedIcon::after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: 0px;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px #000;
+    border-radius: 50%;
+}
+.colorOptions .MuiRadio-root.Mui-checked .checkedIcon img {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+
+@media (max-width: 985px){
+    .colorOptions .MuiRadio-root img {
+        width: 30px;
+        height: 30px;
+    }
+}

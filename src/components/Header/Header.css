@@ -1,0 +1,36 @@
+.navBar {
+  max-width: 85.75rem;
+  margin: 0 auto;
+  z-index: 9999;
+}
+.navBar .navContainer {
+  width: 100%;
+  margin: 0 auto;
+}
+.navBar .navContainer .menuBox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.navBar .navContainer .menuBox div {
+  font-weight: 700;
+  text-wrap: wrap;
+}
+.navBar .navContainer .searchBox {
+  border: 2px solid black;
+  padding: 0.4rem 2rem 0.4rem 0.4rem;
+  border-radius: 4px;
+}
+.navBar .navContainer .rightSideBox {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.navBar .navContainer .rightSideBox .signIn {
+  margin-left: 0.6rem;
+}
+.navBar .navContainer .dropdown-container {
+  display: block;
+}
+
+/*# sourceMappingURL=Header.css.map */

@@ -1,0 +1,84 @@
+.editItemBackground{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(95, 95, 95, 0.5);
+    position: fixed; /* Ensure it covers the viewport */
+    top: 0;
+    left: 0;
+    z-index: 998; /* Ensure it is behind the form container */
+}
+
+.editItemContainer {
+    width: 1000px;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    background-color: #fafafa;
+    z-index: 999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.editItemLeft{
+    width: 50%;
+    position: relative;
+}
+
+.editItemRight{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    box-sizing: border-box;
+    position: relative;
+}
+
+#smallCloseBtn{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    display: none;
+}
+
+#bigCloseBtn{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.textButton{
+    text-align: center;
+    text-decoration: underline;
+    text-decoration-color: #000;
+}
+
+.textButton:hover{
+    cursor: pointer;
+    text-decoration-color: #c8102e;
+}
+
+@media (max-width: 985px) {
+    .editItemContainer {
+        width: 90%;
+        height: 90%;
+        flex-direction: column;
+        overflow-y: auto;
+    }
+    .editItemLeft{
+        width: 100%;
+    }
+    .editItemRight{
+        width: 100%;
+    }
+    #bigCloseBtn{
+        display: none;
+    }
+    #smallCloseBtn{
+        display: block;
+    }
+}

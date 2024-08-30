@@ -1,0 +1,74 @@
+.product-carousel {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+.product-carousel .carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+.product-carousel .carousel-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-carousel .carousel-image img {
+  width: 100%;
+  height: auto;
+}
+.product-carousel .carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
+.product-carousel .carousel-button.prev {
+  left: 10px;
+}
+.product-carousel .carousel-button.next {
+  right: 10px;
+}
+.product-carousel .carousel-icon {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 8px 5px 5px 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+}
+.product-carousel .carousel-icon.heart {
+  top: 10px;
+  right: 10px;
+}
+.product-carousel .carousel-icon.zoom {
+  bottom: 10px;
+  right: 10px;
+}
+.product-carousel .carousel-thumbnails {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  padding-bottom: 5px;
+}
+.product-carousel .carousel-thumbnails .thumbnail {
+  width: 2.25rem;
+  height: 2.25rem;
+  margin: 5px;
+  cursor: pointer;
+  position: relative;
+}
+.product-carousel .carousel-thumbnails .thumbnail img {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.product-carousel .carousel-thumbnails .tag {
+  display: flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+
+/*# sourceMappingURL=ProductCarousel.css.map */

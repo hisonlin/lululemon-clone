@@ -1,0 +1,22 @@
+.alsoLikeTitle{
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+.alsoLikeCardContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+@media(max-width: 985px){
+    .alsoLikeTitle{
+        font-size: 30px;
+    }
+    .alsoLikeCardContainer{
+       overflow-y: auto;
+    }
+}

@@ -1,0 +1,23 @@
+.featureContainer{
+    max-width: 85.75rem;
+    margin: 3rem 0;
+}
+
+.featureTitle{
+    flex-grow: 1;
+    font-size: 25px;
+    font-weight: 700;
+    margin-left: 8px;
+    padding:20px;
+    cursor: pointer;
+}
+
+@media (max-width: 965px){
+    .featureContainer{
+        margin: 0;
+        max-width: 100%;
+    }
+    .featureTitle{
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,28 @@
+.reviewCardContainer{
+    height: auto;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.reviewCardTitle
+{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+.logo{
+    box-sizing: border-box;
+    width:25px;
+    height:25px;
+    border-radius:50%;
+    background-color: #5F5F5F;
+    color: white;
+    text-align: center;
+    padding: 2px;
+
+}

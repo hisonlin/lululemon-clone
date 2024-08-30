@@ -1,0 +1,41 @@
+.ratingSummary {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.rating{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stars{
+    width:auto;
+}
+
+.ratingBar{
+    width:50%;
+    display: flex;
+}
+
+.percentage{
+    width:auto;
+}
+
+.ratingBarFill {
+    height: 10px;
+    background: black;
+}
+
+.remaining{
+    height: 10px;
+    background:#d3d5d7;
+}
+
+
+@media(max-width: 985px){
+    .ratingSummary{
+        gap:1rem;
+    }
+}

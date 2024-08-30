@@ -1,0 +1,22 @@
+.smallScreenHeaderContainer {
+    max-width: 985px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+.smallScreenHeaderFirstRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchBox {
+    border: 2px solid black;
+    padding: 0.4rem 2rem 0.4rem 0.4rem;
+    border-radius: 4px;
+    width: 100%;
+}

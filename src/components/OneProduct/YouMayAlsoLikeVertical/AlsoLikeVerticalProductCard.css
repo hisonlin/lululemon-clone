@@ -1,0 +1,17 @@
+.alsoLikeVerticalCard{
+    display: flex;
+    flex-direction: column;
+    padding:0 0.78125rem;
+    gap: 0.625rem;
+    box-sizing: border-box;
+    font-size: 10px
+}
+
+.alsoLikeVerticalCard:hover{
+    cursor: pointer;
+}
+
+.alsoLikeVerticalProductImage{
+    width: 100%;
+}
+

@@ -1,0 +1,125 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 75%;
+    max-width: 75%;
+}
+
+.productHeader {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: lightgrey 2px solid;
+    width: calc(100% - 0.78125rem * 2); /* Adjust width to account for padding */
+    font-weight: 900;
+    margin-bottom: 0.78125rem;
+    position:relative;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.allItems {
+    border-bottom: .1875rem solid #d22030;
+    padding: 0.78125rem 0;
+}
+
+
+.cardContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.viewMore{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.viewMoreText{
+    font-size: 1.1875rem;
+    line-height: 1.5rem;
+    margin: 0 0 1rem;
+    font-weight: 500;
+}
+
+.viewMoreBtn{
+    border: black 0.0625rem solid;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    padding: 1rem;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    max-width: 19.4375rem;
+    width: 31.75%;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1.1875rem;
+    line-height: 1.5rem;
+    margin: 0 0 1rem;
+    font-weight: 500;
+}
+
+.viewMoreBtn:hover{
+    background-color: black;
+    color: white;
+}
+
+.selectedFilterContainer {
+    display: flex;
+    flex-direction: row;
+    gap:0.78125rem;
+    flex-wrap: wrap;
+    width: calc(100% - 0.78125rem * 2);
+    margin-bottom: 0.78125rem;
+}
+
+.selectedFilter{
+    padding: 0.78125rem;
+    border: 0.0625rem solid rgba(48, 48, 48, 0.3);
+    border-radius: 5%;
+
+}
+
+.selectedFilter:hover{
+    cursor: pointer;
+    border-color: black;
+}
+
+.selectedFilterName{
+    font-size: 1rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    gap: 0.3125rem;
+    display: flex;
+}
+
+@media (max-width: 985px) {
+    .mainContainer {
+        width: 100%;
+        max-width: 100%;
+        padding:0 1rem;
+    }
+
+    .productHeader {
+        width:100%;
+        font-weight: 700;
+    }
+
+
+    .allItems {
+       width:50%;
+    }
+    .viewMoreBtn{
+        width: 100%;
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,21 @@
+.top-utility-bar {
+  max-width: 85.75rem;
+  margin: 0 auto;
+}
+.top-utility-bar .toolbar {
+  justify-content: flex-end;
+  min-height: 30px;
+}
+.top-utility-bar .toolbar .menuBox {
+  display: flex;
+  align-items: center;
+}
+.top-utility-bar .toolbar .menuBox .menuBtn {
+  text-transform: capitalize;
+  color: black;
+}
+.top-utility-bar .toolbar .menuBox .menuBtn:not(:last-child) {
+  padding-right: 1rem;
+}
+
+/*# sourceMappingURL=TopUtilityBar.css.map */

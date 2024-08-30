@@ -1,0 +1,32 @@
+.checkOutContainer{
+    width:80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+.checkOutLeft{
+    width: 60%;
+}
+
+.checkOutRight{
+    width: 30%;
+}
+
+@media(max-width: 985px){
+    .checkOutContainer{
+        flex-direction: column;
+    }
+
+    .checkOutLeft{
+        width: 100%;
+        order: 2;
+    }
+
+    .checkOutRight{
+        width: 100%;
+        order: 1;
+    }
+
+}

@@ -1,0 +1,46 @@
+.sortListContainer {
+    width: 18.5rem;
+    max-width: 18.5rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+}
+
+.sortListTitle {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+}
+
+.sortListMainBtn {
+    display: flex;
+    gap: 1rem;
+    font-weight: normal
+}
+
+.sortListMainBtn:hover {
+    cursor: pointer;
+}
+
+.sortList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    width: 100%;
+    position: absolute;
+    top: 2rem;
+    background-color: white;
+    z-index: 9999;
+}
+
+.sortItem {
+    font-weight: normal;
+    padding: 1.5rem;
+    width:100%;
+}
+
+.sortItem:hover {
+    cursor: pointer;
+}

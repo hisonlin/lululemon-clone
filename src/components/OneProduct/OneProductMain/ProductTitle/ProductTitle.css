@@ -1,0 +1,20 @@
+.oneProductName{
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.oneProductPrice{
+    font-size: 1.5rem;
+
+}
+
+@media (max-width: 985px) {
+    .oneProductName{
+        font-size: 1.5rem;
+    }
+    .oneProductPrice{
+        font-size: 1.25rem;
+    }
+
+}

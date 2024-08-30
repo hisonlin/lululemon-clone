@@ -1,0 +1,6 @@
+.averageRating{
+    display: flex;
+    align-items: baseline;
+    gap:1rem;
+    margin-bottom: 0.5rem;
+}

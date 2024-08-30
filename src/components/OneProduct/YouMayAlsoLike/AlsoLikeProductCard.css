@@ -1,0 +1,48 @@
+.alsoLikeCard{
+    display: flex;
+    flex-direction: column;
+    padding:0 0.78125rem;
+    margin-bottom: 2rem;
+    width:25%;
+    max-width: 25%;
+    box-sizing: border-box;
+}
+
+.alsoLikeCard:hover{
+    cursor: pointer;
+}
+
+.alsoLikeProductImageContainer{
+    position: relative;
+}
+
+.carouselContainer{
+    position: absolute;
+    bottom: 0;
+    padding: 1rem 0;
+    width: 100%;
+    background-color: white;
+}
+
+.alsoLikeProductImage{
+    width: 100%;
+}
+
+.alsoLikeProductName{
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+
+@media (max-width: 985px){
+   .alsoLikeProductImage{
+       width:150px;
+   }
+    .alsoLikeCard{
+        width:100%;
+        max-width: 100%;
+    }
+    .carouselContainer{
+        padding: 0.5rem 0;
+    }
+}

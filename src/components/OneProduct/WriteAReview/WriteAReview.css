@@ -1,0 +1,54 @@
+.WriteReviewMain {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(95, 95, 95, 0.5);
+    position: fixed; /* Ensure it covers the viewport */
+    top: 0;
+    left: 0;
+    z-index: 998; /* Ensure it is behind the form container */
+}
+
+.WriteReviewContainer {
+    width: 800px;
+    display: flex;
+    flex-direction: row; /* Change to row to make the image and form side by side */
+    margin: auto;
+    background-color: #fafafa;
+    border: 1px solid black;
+    z-index: 999;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.WriteReviewImgEle {
+    width: 50%;
+    height: auto;
+}
+
+.WriteReviewImgEle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.WriteReviewFormEle {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+}
+
+.WriteReviewLabel label {
+    font-size: 10px;
+}
+
+.WriteReviewButton button {
+    background-color: black;
+    color: white;
+    font-size: 12px;
+    padding: 5px;
+}

@@ -1,0 +1,43 @@
+.navBar {
+
+  max-width: 85.75rem;
+  margin: 0 auto;
+  z-index: 9999;
+
+  .navContainer {
+    width: 100%;
+    margin: 0 auto;
+
+    .menuBox {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      div {
+        font-weight: 700;
+        text-wrap: wrap;
+      }
+    }
+
+    .searchBox {
+      border: 2px solid black;
+      padding: 0.4rem 2rem 0.4rem 0.4rem;
+      border-radius: 4px;
+    }
+
+
+    .rightSideBox {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .signIn {
+        margin-left: 0.6rem;
+      }
+    }
+
+    .dropdown-container {
+      display: block;
+    }
+  }
+}

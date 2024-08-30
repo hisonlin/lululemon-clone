@@ -1,0 +1,36 @@
+.dropdownContainer{
+  padding:0 3rem;
+  max-width: 85.75rem;
+  margin:0 auto;
+  min-height:20vh;
+  .rightSection{
+    border-left:1px solid #ccc;
+    .womensClothContainer{
+      margin-left:2rem;
+      .womensClothes2{
+        padding-left:3rem;
+      }
+    }
+    }
+    .headerCaption{
+      text-align: left;
+    }
+    
+    .accessoriesColumn{
+      padding-left:6rem;
+    }
+    // start of activity bar at the bottom
+    .activityBar{
+      margin-top:3rem;
+      background-color: #FAFAFA;
+      display:flex;
+      justify-content: space-between;
+      align-items: center;
+      .i-2{
+        margin:1rem;
+        border-left:1px solid #ccc;
+        padding-left:2rem;
+      }
+    }
+ 
+}

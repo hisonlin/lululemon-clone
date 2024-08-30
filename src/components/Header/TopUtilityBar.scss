@@ -1,0 +1,19 @@
+.top-utility-bar{
+  max-width: 85.75rem;
+  margin: 0 auto;
+  .toolbar{
+    justify-content: flex-end;
+    min-height:30px;
+    .menuBox{
+      display:flex;
+      align-items:center;
+      .menuBtn{
+        text-transform:capitalize;
+        color:black;
+        &:not(:last-child){
+          padding-right:1rem;
+        }
+      }
+    }
+  }
+}

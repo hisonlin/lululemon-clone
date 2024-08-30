@@ -1,0 +1,21 @@
+.oneProductMainContainer{
+    box-sizing: border-box;
+    display:flex;
+    gap: 2rem;
+    width: 100%;
+}
+
+.oneProductMainLeft{
+    box-sizing: border-box;
+    width: 45%;
+}
+
+.oneProductMainCenter{
+    box-sizing: border-box;
+    width: 45%;
+}
+
+.oneProductMainRight{
+    box-sizing: border-box;
+    width: 10%;
+}

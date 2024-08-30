@@ -1,0 +1,11 @@
+.oneProductContainer {
+    max-width: 85.75rem;
+    margin: 0 auto;
+}
+
+.smallScreenOneProductContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}

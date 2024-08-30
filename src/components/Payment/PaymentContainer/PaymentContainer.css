@@ -1,0 +1,31 @@
+.paymentContainer{
+    width:80%;
+    margin:0 auto;
+    display:flex;
+    justify-content:space-between;
+}
+
+.paymentContainerLeft{
+    width:60%;
+}
+
+.paymentContainerRight{
+    width:30%;
+}
+
+@media(max-width: 985px){
+    .paymentContainer{
+        flex-direction: column;
+    }
+
+    .paymentContainerLeft{
+        width: 100%;
+        order: 2;
+    }
+
+    .paymentContainerRight{
+        width: 100%;
+        order: 1;
+    }
+
+}

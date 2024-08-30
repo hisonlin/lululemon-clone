@@ -1,0 +1,12 @@
+.mainBody {
+    max-width: 85.75rem;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 985px) {
+    .mainBody {
+        max-width: 100%;
+    }
+}

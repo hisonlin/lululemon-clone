@@ -1,0 +1,6 @@
+.myBagContainer{
+    max-width: 85.75rem;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+}
