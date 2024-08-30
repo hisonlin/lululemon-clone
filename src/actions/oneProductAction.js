@@ -3,11 +3,12 @@ import {actionType} from "../const";
 
 const oneProductAPIURL = process.env.REACT_APP_ONE_PRODUCT_API_URL;
 const APIKEY = process.env.REACT_APP_API_KEY;
+const corsProxy = 'https://cors-anywhere.herokuapp.com/';
 
 const fetchOneProduct = (productId, color) => {
     return async (dispatch) => {
         try {
-            const res = await axios.get(`${oneProductAPIURL}${productId}?&mykey=${APIKEY}`);
+            const res = await axios.get(`${corsProxy}${oneProductAPIURL}${productId}?&mykey=${APIKEY}`);
             const product = res.data.rs;
             // console.log('product:', product);
             const initialColorIndex = product.swatches.findIndex(swatch => swatch.swatchAlt === color);
