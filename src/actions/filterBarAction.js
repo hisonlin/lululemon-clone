@@ -1,13 +1,13 @@
 import axios from "axios";
 import {actionType} from "../const";
 
-const filterAPIURL = process.env.REACT_APP_FILTER_API_URL;
+const proxyURL=process.env.REACT_APP_PROXY_URL;
 const APIKEY = process.env.REACT_APP_API_KEY;
 
 const fetchFilterBarData = () => {
     return async (dispatch) => {
         try {
-            const res = await axios.get(`${filterAPIURL}mykey=${APIKEY}`);
+            const res = await axios.get(`${proxyURL}/product/filter?mykey=${APIKEY}`);
             // console.log('res:', res)
             const bodyData = res.data.rs;
             // console.log('bodyData:', bodyData);
