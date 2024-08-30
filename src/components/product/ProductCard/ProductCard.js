@@ -12,7 +12,7 @@ const ProductCard = ({ product, images, colorImages, index, isSmallScreen}) => {
         imageArray.map(imageUrl =>
             imageUrl.replace(
                 'http://api-lulu.hibitbyte.com/static/images',
-                'https://your-proxy-server.vercel.app/images'
+                'https://secure-proxy-server.vercel.app/images'
             )
         )
     );
