@@ -17,7 +17,7 @@ const ProductContainer = () => {
     // console.log('productsShowing:', productsShowing);
 
     const imagesArray = useSelector(state => state.productReducer.imagesArray);
-    console.log('imagesArray:', imagesArray);
+    // console.log('imagesArray:', imagesArray);
 
     useEffect(() => {
         if (productsShowing.length > 0) {

@@ -14,6 +14,18 @@ const fetchFilterBarData = () => {
             const filterType = Object.keys(bodyData);
             const filterData = Object.values(bodyData);
 
+            // Secure the swatch image URLs using proxy endpoint
+            filterData.forEach((itemArray) => {
+                itemArray.forEach((item) => {
+                    if (item.swatch) {
+                        // Secure the swatch image URL using proxy endpoint
+                        item.swatch = `${proxyServerURL}/proxy-image?imageUrl=${encodeURIComponent(item.swatch)}`;
+                    }
+                });
+            });
+
+            console.log('filterData:', filterData);
+
             // Dispatch action with fetched data
             dispatch({
                 type: actionType.FETCH_FILTER_BAR_DATA,
