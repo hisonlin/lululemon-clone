@@ -1,30 +1,35 @@
 import axios from "axios";
-import {actionType, proxyServerURL} from "../const";
+import {actionType} from "../const";
+
+const proxySever= process.env.REACT_APP_PROXY_SERVER_URL;
 
 const fetchFilterBarData = () => {
     return async (dispatch) => {
         try {
             // Make a GET request to the backend proxy server
-            const res = await axios.get(`${proxyServerURL}/api/filter`);
+            const res = await axios.get(`${proxySever}/api/filter`);
 
             // Extract response data
             const bodyData = res.data.rs;
 
-            // Prepare filterType and filterData arrays
-            const filterType = Object.keys(bodyData);
-            const filterData = Object.values(bodyData);
+            
+            const filterType = [];
+            const filterData = [];
+
+            for (const key in bodyData) {
+                filterType.push(key);
+                filterData.push(structuredClone(bodyData[key]));
+            }
 
             // Secure the swatch image URLs using proxy endpoint
             filterData.forEach((itemArray) => {
                 itemArray.forEach((item) => {
                     if (item.swatch) {
                         // Secure the swatch image URL using proxy endpoint
-                        item.swatch = `${proxyServerURL}/proxy-image?imageUrl=${encodeURIComponent(item.swatch)}`;
+                        item.swatch = `${proxySever}/proxy-image?imageUrl=${encodeURIComponent(item.swatch)}`;
                     }
                 });
             });
-
-            console.log('filterData:', filterData);
 
             // Dispatch action with fetched data
             dispatch({

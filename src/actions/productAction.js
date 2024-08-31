@@ -1,12 +1,14 @@
 import axios from "axios";
-import {actionType, proxyServerURL} from "../const";
+import {actionType} from "../const";
 // import { saveAs } from 'file-saver';
+
+const proxySever= process.env.REACT_APP_PROXY_SERVER_URL;
 
 const fetchProducts = (sortingID, page, bodyData) => {
     return async (dispatch) => {
         dispatch(setCurrentPage(page));
         try {
-            const res = await axios.post(`${proxyServerURL}/api/fetch-products`, {
+            const res = await axios.post(`${proxySever}/api/fetch-products`, {
                 sortingID,
                 page,
                 bodyData,
@@ -57,7 +59,7 @@ const getImages = (products) => {
                     // Fetch each image securely via the backend proxy
                     const secureImages = await Promise.all(images.map(async (imageUrl) => {
                         // Fetch image through the proxy endpoint
-                        const proxyImageUrl = `${proxyServerURL}/proxy-image?imageUrl=${encodeURIComponent(imageUrl)}`;
+                        const proxyImageUrl = `${proxySever}/proxy-image?imageUrl=${encodeURIComponent(imageUrl)}`;
                         return proxyImageUrl; // Return the secure proxy URL
                     }));
                     
@@ -87,7 +89,7 @@ const getColorInfo = (products) => {
             const colorImagesArray = await Promise.all(products.map(async (product) => {
                 // Fetch each swatch image securely via the backend proxy
                 const colorImages = await Promise.all(product.swatches?.map(async (color) => {
-                    const proxyImageUrl = `${proxyServerURL}/proxy-image?imageUrl=${encodeURIComponent(color.swatch)}`;
+                    const proxyImageUrl = `${proxySever}/proxy-image?imageUrl=${encodeURIComponent(color.swatch)}`;
                     return proxyImageUrl; // Return the secure proxy URL
                 }) || []); // Handle cases where swatches might be undefined
 
