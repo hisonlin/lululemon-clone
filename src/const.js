@@ -1,4 +1,4 @@
-export const proxyServerURL= 'https://secure-proxy-server.vercel.app/'
+export const proxyServerURL= 'https://secure-proxy-server.vercel.app'
 
 export const actionType={
     FETCH_FILTER_BAR_DATA:'FETCH_FILTER_BAR_DATA',
