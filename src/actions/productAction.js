@@ -79,24 +79,37 @@ const getImages = (products) => {
     };
 };
 
+// Action to fetch color information securely via backend
 const getColorInfo = (products) => {
-    return (dispatch) => {
-        const colorImagesArray = [];
-        const colorNamesArray = [];
-        products.forEach(product => {
-            const colorImages = product.swatches?.map(color => color.swatch);
-            const colorNames = product.swatches?.map(color => color.swatchAlt);
-            colorImagesArray.push(colorImages);
-            colorNamesArray.push(colorNames);
-        });
+    return async (dispatch) => {
+        try {
+            // Create arrays for color images and names
+            const colorImagesArray = await Promise.all(products.map(async (product) => {
+                // Fetch each swatch image securely via the backend proxy
+                const colorImages = await Promise.all(product.swatches?.map(async (color) => {
+                    const proxyImageUrl = `${proxyServerURL}/proxy-image?imageUrl=${encodeURIComponent(color.swatch)}`;
+                    return proxyImageUrl; // Return the secure proxy URL
+                }) || []); // Handle cases where swatches might be undefined
 
-        dispatch({
-            type: actionType.GET_COLORS,
-            colorImagesArray,
-            colorNamesArray
-        });
-    }
-}
+                return colorImages;
+            }));
+
+            const colorNamesArray = products.map(product => 
+                product.swatches?.map(color => color.swatchAlt) || [] // Extract color names
+            );
+
+            // Dispatch action with the fetched color images and names
+            dispatch({
+                type: actionType.GET_COLORS,
+                colorImagesArray,
+                colorNamesArray
+            });
+        } catch (error) {
+            console.error('Error fetching color images through proxy:', error.message);
+            // Optionally, handle errors or dispatch an error-specific action
+        }
+    };
+};
 
 const setCurrentPage = (page) => {
     return ({
