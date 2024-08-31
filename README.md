@@ -5,7 +5,7 @@ This project is a clone of the Lululemon website, mimicking its design and funct
 This project aims to demonstrate the ability to create a fully functional e-commerce app using React and Redux.
 
 ## Technologies Used
-
+### Front-end:
 - React
 - Redux
 - Redux Thunk
@@ -18,6 +18,14 @@ This project aims to demonstrate the ability to create a fully functional e-comm
 - Local Storage
 - Carousel
 - Form Validation
+
+### Back-end:
+- Node.js
+- Express
+- RESTful API
+- CORS
+- PROXY
+
 
 ## Features
 
@@ -32,12 +40,12 @@ This project aims to demonstrate the ability to create a fully functional e-comm
 - Allows users to complete the purchase.
 
 
-## Improvements
+## Deployment
 
-- Implement user authentication.
-- Implement user profile page.
-- Implement wishlist feature.
-- Implement backend server to store user data.
+- The app is deployed on Vercel. You can access the app [here](https://lululemon-clone.vercel.app/).  
+- The app fetches data from the Lululemon API, the app may not work properly if the API is down.  
+- Since the API is HTTP-only, whereas the app is deployed on HTTPS, the app may not work properly if the API is not configured to allow requests from the deployed domain. I have bulid a proxy server to handle the API requests, which allows the app to fetch data from the API without CORS issues.
+
 
 ## Disclaimer
 
