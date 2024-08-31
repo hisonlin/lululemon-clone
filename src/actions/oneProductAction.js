@@ -12,7 +12,7 @@ const fetchOneProduct = (productId, color) => {
             
             // Extract the product data from the response
             const product = res.data.rs;
-            console.log('product:', product);
+            // console.log('product:', product);
 
             await Promise.all(product.images.map(async (imageObj) => {
                 const images = imageObj.mainCarousel.media.split('|').map(image => image.trim());
@@ -24,6 +24,16 @@ const fetchOneProduct = (productId, color) => {
             // Modify swatch URLs to use secure backend proxy
             product.swatches.forEach(swatch => {
                 swatch.swatch = `${proxySever}/proxy-image?imageUrl=${encodeURIComponent(swatch.swatch)}`;
+            });
+
+            // Modify featurePanel iconPath URLs to be secure
+            product.featurePanels.forEach(panel => {
+                panel.iconPath = `${proxySever}/proxy-image?imageUrl=${encodeURIComponent(panel.iconPath)}`;
+            });
+
+            // Modify featureTitle iconPath URLs to be secure
+            product.featureTitles.forEach(title => {
+                title.iconPath = `${proxySever}/proxy-image?imageUrl=${encodeURIComponent(title.iconPath)}`;
             });
 
             // Find the initial color index based on the provided color
