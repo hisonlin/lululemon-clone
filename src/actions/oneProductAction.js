@@ -5,7 +5,6 @@ const proxySever= process.env.REACT_APP_PROXY_SERVER_URL;
 
 // Action to fetch one product
 const fetchOneProduct = (productId, color) => {
-    console.log('fetchOneProduct:', productId, color);
     return async (dispatch) => {
         try {
             // Make a POST request to the backend to fetch one product
@@ -14,6 +13,18 @@ const fetchOneProduct = (productId, color) => {
             // Extract the product data from the response
             const product = res.data.rs;
             console.log('product:', product);
+
+            await Promise.all(product.images.map(async (imageObj) => {
+                const images = imageObj.mainCarousel.media.split('|').map(image => image.trim());
+                imageObj.mainCarousel.media = images.map(imageUrl => `${proxySever}/proxy-image?imageUrl=${encodeURIComponent(imageUrl)}`);
+                // If the component expects a string, join them back:
+                imageObj.mainCarousel.media = imageObj.mainCarousel.media.join('|');
+            }));
+
+            // Modify swatch URLs to use secure backend proxy
+            product.swatches.forEach(swatch => {
+                swatch.swatch = `${proxySever}/proxy-image?imageUrl=${encodeURIComponent(swatch.swatch)}`;
+            });
 
             // Find the initial color index based on the provided color
             const initialColorIndex = product.swatches.findIndex(swatch => swatch.swatchAlt === color);

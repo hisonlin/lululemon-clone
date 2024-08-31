@@ -27,6 +27,7 @@ const OneProduct = () => {
     }, [dispatch, productId, formattedColor]);
 
     const product = useSelector(state => state.oneProductReducer.product);
+    console.log('productpage:', product);
     const initialColorIndex = useSelector(state => state.oneProductReducer.initialColorIndex);
 
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 985);
