@@ -1,17 +1,12 @@
 import axios from "axios";
-import {actionType} from "../const";
+import {actionType, proxyServerURL} from "../const";
 // import { saveAs } from 'file-saver';
-
-const APIKEY=process.env.REACT_APP_API_KEY;
-const productURL = process.env.REACT_APP_PRODUCT_API_URL;
-const proxyServerURL = process.env.REACT_APP_PROXY_URL;
-
 
 const fetchProducts = (sortingID, page, bodyData) => {
     return async (dispatch) => {
         dispatch(setCurrentPage(page));
         try {
-            const res = await axios.post('http://localhost:5000/api/fetch-products', {
+            const res = await axios.post(`${proxyServerURL}/api/fetch-products`, {
                 sortingID,
                 page,
                 bodyData,
@@ -62,7 +57,7 @@ const getImages = (products) => {
                     // Fetch each image securely via the backend proxy
                     const secureImages = await Promise.all(images.map(async (imageUrl) => {
                         // Fetch image through the proxy endpoint
-                        const proxyImageUrl = `http://localhost:5000/proxy-image?imageUrl=${encodeURIComponent(imageUrl)}`;
+                        const proxyImageUrl = `${proxyServerURL}/proxy-image?imageUrl=${encodeURIComponent(imageUrl)}`;
                         return proxyImageUrl; // Return the secure proxy URL
                     }));
                     
