@@ -1,34 +1,35 @@
 import axios from "axios";
-import {actionType} from "../const";
-
-const filterURL = process.env.REACT_APP_FILTER_API_URL;
-const APIKEY = process.env.REACT_APP_API_KEY;
-const proxyServerURL = process.env.REACT_APP_PROXY_URL;
+import {actionType, proxyServerURL} from "../const";
 
 const fetchFilterBarData = () => {
     return async (dispatch) => {
         try {
-            const res = await axios.get(`${proxyServerURL}product/filter?mykey=${APIKEY}`);
-            // console.log('res:', res)
-            const bodyData = res.data.rs;
-            // console.log('bodyData:', bodyData);
-            const filterType = [];
-            const filterData = [];
+            // Make a GET request to the backend proxy server
+            const res = await axios.get(`${proxyServerURL}/api/filter`);
 
-            for (const key in bodyData) {
-                filterType.push(key);
-                filterData.push(bodyData[key]);
-            }
+            // Extract response data
+            const bodyData = res.data.rs;
+
+            // Prepare filterType and filterData arrays
+            const filterType = Object.keys(bodyData);
+            const filterData = Object.values(bodyData);
+
+            // Dispatch action with fetched data
             dispatch({
                 type: actionType.FETCH_FILTER_BAR_DATA,
                 bodyData,
                 filterType,
                 filterData
             });
-        } catch (e) {
-            console.log(e);
+        } catch (error) {
+            // Improved error handling
+            console.error('Error fetching filter bar data:', error.message);
+            if (error.response) {
+                console.error('Error response data:', error.response.data);
+                console.error('Error response status:', error.response.status);
+            }
         }
-    }
+    };
 };
 
 const updateBodyData = (type, key, value) => {
