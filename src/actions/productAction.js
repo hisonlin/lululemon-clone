@@ -49,20 +49,38 @@ const fetchProducts = (sortingID, page, bodyData) => {
 //     saveAs(blob, 'productsData.json');
 // };
 
+// Action to fetch images securely via backend
 const getImages = (products) => {
-    return (dispatch) => {
-        const imagesArray = [];
-        products.forEach(product => {
-            const productImages = product.images?.map(imageObj => {
-                const images = imageObj.mainCarousel.media;
-                return images.split('|').map(image => image.trim());
+    return async (dispatch) => {
+        try {
+            // Create a new array to hold images fetched through the proxy
+            const imagesArray = await Promise.all(products.map(async (product) => {
+                const productImages = await Promise.all(product.images?.map(async (imageObj) => {
+                    // Extract and split the main carousel media URLs
+                    const images = imageObj.mainCarousel.media.split('|').map(image => image.trim());
+                    
+                    // Fetch each image securely via the backend proxy
+                    const secureImages = await Promise.all(images.map(async (imageUrl) => {
+                        // Fetch image through the proxy endpoint
+                        const proxyImageUrl = `http://localhost:5000/proxy-image?imageUrl=${encodeURIComponent(imageUrl)}`;
+                        return proxyImageUrl; // Return the secure proxy URL
+                    }));
+                    
+                    return secureImages;
+                }) || []); // Ensure it handles cases where images might be undefined
+                
+                return productImages;
+            }));
+
+            // Dispatch action with the fetched images
+            dispatch({
+                type: actionType.GET_IMAGES,
+                imagesArray,
             });
-            imagesArray.push(productImages);
-        });
-        dispatch({
-            type: actionType.GET_IMAGES,
-            imagesArray
-        });
+        } catch (error) {
+            console.error('Error fetching images through proxy:', error.message);
+            // Optionally, handle errors or dispatch an error-specific action
+        }
     };
 };
 
