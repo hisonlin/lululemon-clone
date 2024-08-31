@@ -4,6 +4,7 @@ import {actionType} from "../const";
 
 const APIKEY=process.env.REACT_APP_API_KEY;
 const productURL = process.env.REACT_APP_PRODUCT_API_URL;
+const proxyServerURL = process.env.REACT_APP_PROXY_URL;
 
 
 const fetchProducts = (sortingID, page, bodyData) => {
@@ -11,16 +12,58 @@ const fetchProducts = (sortingID, page, bodyData) => {
         dispatch(setCurrentPage(page));
         try {
             const res = await axios.post(
-                `${productURL}sortingId=${sortingID}&page=${page}&mykey=${APIKEY}`,
+                `${proxyServerURL}product/allProducts?sortingId=${sortingID}&page=${page}&mykey=${APIKEY}`,
                 bodyData
             );
-            const products = res.data.rs.products;
+            let products = res.data.rs.products;
             // console.log('products:', products);
             const currentPage = page;
             const totalPage = res.data.rs.pageParams.totalPage;
             const totalProducts = res.data.rs.pageParams.totalProducts;
 
-            // console.log('products:', products);
+            // // Function to update image URLs using the proxy server
+            // const reformatImageUrls = (url) => {
+            //     return url.replace(
+            //         'http://api-lulu.hibitbyte.com/static/images',
+            //         `http://localhost:8080/images`
+            //     );
+            // };
+
+            // products = products.map(product => {
+            //     // Update swatch images
+            //     if (product.swatches) {
+            //         product.swatches = product.swatches.map(swatch => ({
+            //             ...swatch,
+            //             swatch: reformatImageUrls(swatch.swatch),
+            //         }));
+            //     }
+
+            //     // Update main carousel images
+            //     if (product.images) {
+            //         product.images = product.images.map(image => {
+            //             if (image.mainCarousel && image.mainCarousel.media) {
+            //                 image.mainCarousel.media = image.mainCarousel.media
+            //                     .split(' | ')
+            //                     .map(reformatImageUrls)
+            //                     .join(' | ');
+            //             }
+            //             if (image.whyWeMadeThis) {
+            //                 image.whyWeMadeThis = image.whyWeMadeThis.map(reformatImageUrls);
+            //             }
+            //             return image;
+            //         });
+            //     }
+
+            //     // Update other image URLs (if any)
+            //     // Add more fields to update if needed...
+
+            //     return product;
+            // });
+
+            // // Log updated products for debugging
+            // console.log('Updated Products:', products);
+
+            
 
             // Dispatch actions
             dispatch({
