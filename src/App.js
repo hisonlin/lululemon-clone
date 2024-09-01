@@ -30,8 +30,6 @@ function App() {
         // console.log('fetchProduct function called')
     }, [bodyData, dispatch]);
 
-    const user = JSON.parse(localStorage.getItem('user'));
-
     return (
         <Routes>
             <Route path="/" element={<Home/>}/>

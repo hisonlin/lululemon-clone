@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import productAction from "../../../actions/productAction";
-import AlsoLikeProductCard from "../YouMayAlsoLike/AlsoLikeProductCard";
 import './YouMayAlsoLikeVertical.css';
 import AlsoLikeVerticalProductCard from "./AlsoLikeVerticalProductCard";
 

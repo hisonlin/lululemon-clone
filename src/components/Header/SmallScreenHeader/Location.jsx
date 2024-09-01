@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Box, Typography, IconButton, List, ListItem, ListItemText, Select, MenuItem, Collapse
+  Box, Typography, IconButton, List, ListItem, ListItemText, Select, MenuItem
 } from '@mui/material';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import CloseIcon from '@mui/icons-material/Close';

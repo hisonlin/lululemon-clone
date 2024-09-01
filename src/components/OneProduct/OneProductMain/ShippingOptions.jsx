@@ -37,7 +37,7 @@ const ShippingOptions = () => {
 
     const handleAddToBag = () => {
         if(!user) {
-            navigate('/login');
+            navigate('/login', { state: { from: window.location.pathname } });
 
         } else if (reduxSelectedItem.size === '') {
             setAlert(true);

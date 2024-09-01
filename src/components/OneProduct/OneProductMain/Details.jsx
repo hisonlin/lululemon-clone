@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box, Typography, Divider} from '@mui/material';
+import {Box, Typography} from '@mui/material';
 import ArrowRightAltIcon from '@mui/icons-material/ArrowRightAlt';
 import {styled} from '@mui/system';
 

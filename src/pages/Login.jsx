@@ -5,9 +5,9 @@ import React, {useEffect, useRef, useState} from "react";
 import SmallScreenHeader from "../components/Header/SmallScreenHeader/SmallScreenHeader";
 import MainHeader from "../components/Header/MainHeader";
 import {Footer} from "../components/Footer/Footer";
-import {useNavigate} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useNavigate, useLocation } from "react-router-dom";
 import SmallerFooter from "../components/Footer/SmallFooter/SmallerFooter";
+
 
 function Login() {
 
@@ -24,8 +24,6 @@ function Login() {
             window.removeEventListener('resize', handleResize);
         };
     }, []);
-
-    const dispatch = useDispatch();
 
     const [showPassword, setShowPassword] = useState(false);
     const [email, setEmail] = useState('test@email.com');
@@ -96,13 +94,16 @@ function Login() {
 
     }
 
+    const location = useLocation();
+    const from = location.state?.from || '/';
+
     const handleOnClick = async (event) => {
         event.preventDefault();
 
         const result = login({email, password});
 
         if (result?.success) {
-            navigate('/');
+            navigate(from);
         } else if (result?.error === 'User not found') {
             setAlertMsg('User not found. Please try again.');
         } else if (result?.error === 'Password is incorrect') {

@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {Grid, Typography, Box, Radio, Button} from '@mui/material';
+import {Grid, Typography, Box} from '@mui/material';
 import "./ProductInfo.scss";
 import MySize from "../../../icons/Mysize";
 import ShippingOptions from "./ShippingOptions.jsx";

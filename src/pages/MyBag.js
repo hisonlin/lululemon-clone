@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import MyBagHeader from "../components/MyBag/MyBagHeader/MyBagHeader";
 import './MyBag.css';
 import MyBagContainer from "../components/MyBag/MyBagContainer/MyBagContainer";

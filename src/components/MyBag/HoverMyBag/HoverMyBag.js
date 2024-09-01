@@ -38,9 +38,9 @@ const HoverMyBag = ({closeBag, position, right, width, height, top}) => {
 
             <div className={'bottomLine'}></div>
             <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-                {bag.map((item, index) => (
+                {bag.length>0?bag.map((item, index) => (
                     <HoverMyBagCard key={index} item={item} type={'myBag'} updateBag={updateBag}/>
-                ))}
+                )):<div style={{padding: '1rem', display:'flex',justifyContent:'center', alignItems:'center', height:'300px'}}>No items in your bag</div>}
 
             </div>
             <div className={'bottomLine'} style={{marginBottom: '1rem'}}></div>

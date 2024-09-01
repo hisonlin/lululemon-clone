@@ -1,7 +1,7 @@
 import React from 'react';
 import './ReviewCard.css';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faStar as faStarEmpty, faStar, faStarHalfAlt} from "@fortawesome/free-solid-svg-icons";
+import {faStar as faStarEmpty, faStar} from "@fortawesome/free-solid-svg-icons";
 
 const ReviewCard = ({review}) => {
     const today = new Date();

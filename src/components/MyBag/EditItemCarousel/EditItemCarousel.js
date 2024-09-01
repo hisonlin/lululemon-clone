@@ -12,7 +12,7 @@ const EditItemCarousel = ({ images }) => {
         <div style={{ position: 'relative' }}>
             <img
                 src={images[currentIndex]}
-                alt={`Image ${currentIndex + 1}`}
+                alt={` ${currentIndex + 1}`}
                 style={{width: '100%'}}
             />
             <KeyboardArrowRightIcon

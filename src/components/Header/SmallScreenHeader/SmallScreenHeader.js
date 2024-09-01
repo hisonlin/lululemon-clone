@@ -89,7 +89,7 @@ const SmallScreenHeader = () => {
                                     position: 'absolute',
                                     top: '-10px',
                                     right: '-10px',
-                                    backgroundColor: 'red',
+                                    backgroundColor: '#c8102e',
                                     color: 'white',
                                     borderRadius: '50%',
                                     width: '20px',

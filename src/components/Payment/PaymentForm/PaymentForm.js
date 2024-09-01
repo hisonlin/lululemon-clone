@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import './PaymentForm.css'
 import CreditCardForm from "../CreditCardForm/CreditCardForm";
 import {useNavigate} from "react-router-dom";
-import {bagReducer} from "../../../reducers/bagReducer";
 import bagAction from "../../../actions/bagAction";
 
 const PaymentForm = () => {
