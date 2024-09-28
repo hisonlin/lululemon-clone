@@ -1,47 +1,45 @@
-import React, {useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import React from 'react';
+
 import './PaymentForm.css'
-import CreditCardForm from "../CreditCardForm/CreditCardForm";
-import {useNavigate} from "react-router-dom";
-import bagAction from "../../../actions/bagAction";
+import PayPalButton from '../../PayPalButton/PayPalButton';
 
 const PaymentForm = () => {
-    const userInfo = useSelector(state => state.checkoutReducer.userInfo);
-    const dispatch = useDispatch();
+    const userInfo = JSON.parse(localStorage.getItem('user'));
+    // const dispatch = useDispatch();
 
-    const [cardNum, setCardNum] = useState('');
-    const [expiry, setExpiry] = useState('');
-    const [securityCode, setSecurityCode] = useState('');
-    const [name, setName] = useState('');
+    // const [cardNum, setCardNum] = useState('');
+    // const [expiry, setExpiry] = useState('');
+    // const [securityCode, setSecurityCode] = useState('');
+    // const [name, setName] = useState('');
 
-    const [showCreditCardError, setShowCreditCardError] = useState(false);
+    // const [showCreditCardError, setShowCreditCardError] = useState(false);
 
-    const navigate = useNavigate();
-    const handleSubmit = () => {
-        if (cardNum.length !== 16 || expiry.length !== 4 || securityCode.length !== 3 || name.length === 0) {
-            setShowCreditCardError(true);
-        } else {
-            setShowCreditCardError(false);
-            navigate('/order-confirmation');
-            localStorage.removeItem('bag');
-            dispatch(bagAction.clearBag());
-        }
+    // const navigate = useNavigate();
+    // const handleSubmit = () => {
+    //     if (cardNum.length !== 16 || expiry.length !== 4 || securityCode.length !== 3 || name.length === 0) {
+    //         setShowCreditCardError(true);
+    //     } else {
+    //         setShowCreditCardError(false);
+    //         navigate('/order-confirmation');
+    //         localStorage.removeItem('bag');
+    //         dispatch(bagAction.clearBag());
+    //     }
 
-    }
+    // }
 
 
-    const handleCardNum = (e) => {
-        setCardNum(e.target.value);
-    }
-    const handleExpiry = (e) => {
-        setExpiry(e.target.value);
-    }
-    const handleSecurityCode = (e) => {
-        setSecurityCode(e.target.value);
-    }
-    const handleName = (e) => {
-        setName(e.target.value);
-    }
+    // const handleCardNum = (e) => {
+    //     setCardNum(e.target.value);
+    // }
+    // const handleExpiry = (e) => {
+    //     setExpiry(e.target.value);
+    // }
+    // const handleSecurityCode = (e) => {
+    //     setSecurityCode(e.target.value);
+    // }
+    // const handleName = (e) => {
+    //     setName(e.target.value);
+    // }
 
 
     let deliveryDate = new Date();
@@ -85,7 +83,7 @@ const PaymentForm = () => {
             </div>
             <div className={'bottomLine'}></div>
             <div className={'formTitle'}>Payment Method</div>
-            <CreditCardForm setCardNum={handleCardNum}
+            {/* <CreditCardForm setCardNum={handleCardNum}
                             setExpiry={handleExpiry}
                             setSecurityCode={handleSecurityCode}
                             setName={handleName}
@@ -94,9 +92,10 @@ const PaymentForm = () => {
                             securityCode={securityCode}
                             name={name}
                             showCreditCardError={showCreditCardError}
-            />
+            /> */}
+            <PayPalButton />
             <div className={'bottomLine'}></div>
-            <div style={{display: 'flex', flexDirection: 'column', alignItems: 'end'}}>
+            {/* <div style={{display: 'flex', flexDirection: 'column', alignItems: 'end'}}>
                 <button style={{
                     width: '50%',
                     padding: '1rem',
@@ -110,7 +109,7 @@ const PaymentForm = () => {
                         onClick={handleSubmit}>
                     PLACE YOUR ORDER
                 </button>
-            </div>
+            </div> */}
         </div>
     );
 };

@@ -24,6 +24,8 @@ const Home = () => {
         };
     }, []);
 
+    
+
     const productsShowing = useSelector(state => state.productReducer.productsShowing);
 
     return (

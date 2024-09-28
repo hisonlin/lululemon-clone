@@ -12,11 +12,12 @@ const MyBagHeader = () => {
         navigate('/');
     }
 
-    const firstName = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).firstName : null;
+    const firstName = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
     const handleSignInClick = () => {
         if (firstName) {
             localStorage.removeItem('user');
             localStorage.removeItem('bag');
+            localStorage.removeItem('token');
             localStorage.removeItem('saveForLater');
 
             //refresh the page

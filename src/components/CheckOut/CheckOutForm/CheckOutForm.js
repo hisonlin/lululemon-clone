@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useState} from 'react';
 import "./CheckOutForm.css";
 import UserIcon from "../../../icons/UserIcon";
 import {useNavigate} from "react-router-dom";
@@ -9,28 +9,18 @@ const CheckOutForm = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const user = JSON.parse(localStorage.getItem('user'));
+    const [userInfo, setUserInfo] = useState({
+        email: '',
+        firstName: '',
+        lastName: '',
+        phone: '',
+        address: '',
+        city: '',
+        province: '',
+        postalCode: ''
+    });
 
-    useEffect(() => {
-        if (user) {
-            setUserInfo(prevState => ({
-                ...prevState,
-                email: user.email,
-                firstName: user.firstName,
-                lastName: user.lastName,
-                phone: user.phone,
-                address: user.address,
-                city: user.city,
-                province: user.province,
-                postalCode: user.postalCode,
-            }));
-        }
-    }, []);
-
-    const [userInfo, setUserInfo] = React.useState({});
-    console.log('userInfo:', userInfo);
-    const [errors, setErrors] = React.useState({});
-    console.log('errors:', errors);
+    const [errors, setErrors] = useState({});
 
     // Map field labels to their corresponding keys in userInfo
     const requiredFields = {
@@ -69,8 +59,8 @@ const CheckOutForm = () => {
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
         } else {
-            dispatch(checkoutAction.updateUserInfo(userInfo));
-            navigate('/payment');
+            dispatch(checkoutAction.updateUserInfo(userInfo)); // Dispatch the user info to the store
+            navigate('/payment'); // Navigate to the payment step
         }
     };
 
@@ -83,7 +73,7 @@ const CheckOutForm = () => {
                     type="email"
                     className={'formInput'}
                     name="email"
-                    value={userInfo.email || ''}
+                    value={userInfo.email}
                     onChange={handleInputChange}
                 />
                 {errors.email && <div className="error">{errors.email}</div>}
@@ -95,7 +85,7 @@ const CheckOutForm = () => {
                     </label>
                 </div>
             </div>
-            {!user&&<div className={'formSection'}>
+            <div className={'formSection'}>
                 <div className={'formTitle'} style={{display: 'flex', gap: '1rem', alignItems: 'center'}}>
                     <UserIcon/>
                     <div>Have an account?</div>
@@ -103,7 +93,7 @@ const CheckOutForm = () => {
                 <div><span style={{fontWeight: '700', textDecoration: 'underline', cursor: 'pointer'}}>Log in</span> to
                     checkout more quickly and easily
                 </div>
-            </div>}
+            </div>
             <div className={'formSection'}>
                 <div className={'formTitle'}>Shipping address</div>
                 <form>
@@ -115,7 +105,7 @@ const CheckOutForm = () => {
                                 id="firstName"
                                 name="firstName"
                                 className={'formInput'}
-                                value={userInfo.firstName || ''}
+                                value={userInfo.firstName}
                                 onChange={handleInputChange}
                             />
                             {errors.firstName && <div className="error">{errors.firstName}</div>}
@@ -127,7 +117,7 @@ const CheckOutForm = () => {
                                 id="lastName"
                                 name="lastName"
                                 className={'formInput'}
-                                value={userInfo.lastName || ''}
+                                value={userInfo.lastName}
                                 onChange={handleInputChange}
                             />
                             {errors.lastName && <div className="error">{errors.lastName}</div>}
@@ -141,7 +131,7 @@ const CheckOutForm = () => {
                                 id="phone"
                                 name="phone"
                                 className={'formInput'}
-                                value={userInfo.phone || ''}
+                                value={userInfo.phone}
                                 onChange={handleInputChange}
                             />
                             {errors.phone && <div className="error">{errors.phone}</div>}
@@ -155,7 +145,7 @@ const CheckOutForm = () => {
                                 id="address"
                                 name="address"
                                 className={'formInput'}
-                                value={userInfo.address || ''}
+                                value={userInfo.address}
                                 onChange={handleInputChange}
                             />
                             {errors.address && <div className="error">{errors.address}</div>}
@@ -169,7 +159,7 @@ const CheckOutForm = () => {
                                 id="city"
                                 name="city"
                                 className={'formInput'}
-                                value={userInfo.city || ''}
+                                value={userInfo.city}
                                 onChange={handleInputChange}
                             />
                             {errors.city && <div className="error">{errors.city}</div>}
@@ -181,7 +171,7 @@ const CheckOutForm = () => {
                                 id="province"
                                 name="province"
                                 className={'formInput'}
-                                value={userInfo.province || ''}
+                                value={userInfo.province}
                                 onChange={handleInputChange}
                             />
                             {errors.province && <div className="error">{errors.province}</div>}
@@ -193,7 +183,7 @@ const CheckOutForm = () => {
                                 id="postalCode"
                                 name="postalCode"
                                 className={'formInput'}
-                                value={userInfo.postalCode || ''}
+                                value={userInfo.postalCode}
                                 onChange={handleInputChange}
                             />
                             {errors.postalCode && <div className="error">{errors.postalCode}</div>}
@@ -226,4 +216,3 @@ const CheckOutForm = () => {
 };
 
 export default CheckOutForm;
-

@@ -83,7 +83,7 @@ const BurgerMenu = ({ open, onClose }) => {
     setShowLocation(false);
   };
 
-  const firstName = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).firstName : null;
+  const firstName = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
   return (
     <ThemeProvider theme={theme}>
       <Drawer 

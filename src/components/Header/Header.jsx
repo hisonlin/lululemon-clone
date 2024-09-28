@@ -13,6 +13,8 @@ import DropdownMenu from "./DropdownMenu";
 const Header = () => {
     const navigate = useNavigate();
 
+    const firstName = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+    
     const handleLogoClick = () => {
         navigate('/');
     }
@@ -40,27 +42,26 @@ const Header = () => {
         setHoverBag(false);
     }
 
-    // useEffect to update the state based on localStorage changes
-    React.useEffect(() => {
-        const handleBagChange = () => {
-            const updatedBag = JSON.parse(localStorage.getItem('bag')) || [];
-            setBag(updatedBag);
-        };
+    // // useEffect to update the state based on localStorage changes
+    // React.useEffect(() => {
+    //     const handleBagChange = () => {
+    //         const updatedBag = JSON.parse(localStorage.getItem('bag')) || [];
+    //         setBag(updatedBag);
+    //     };
 
-        // Watch for updates to the bag in localStorage
-        const interval = setInterval(() => {
-            handleBagChange();
-        }, 500);
+    //     // Watch for updates to the bag in localStorage
+    //     const interval = setInterval(() => {
+    //         handleBagChange();
+    //     }, 500);
 
-        // Cleanup the interval on component unmount
-        return () => clearInterval(interval);
-    }, []);
-
-   const firstName = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).firstName : null;
+    //     // Cleanup the interval on component unmount
+    //     return () => clearInterval(interval);
+    // }, []);
 
     const handleSignInClick = () => {
         if (firstName) {
             localStorage.removeItem('user');
+            localStorage.removeItem('token');
             localStorage.removeItem('bag');
             localStorage.removeItem('saveForLater');
 
@@ -71,7 +72,6 @@ const Header = () => {
             navigate('/login');
         }
     };
-
 
     return (
         <>

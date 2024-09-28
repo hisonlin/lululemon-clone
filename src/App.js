@@ -11,7 +11,7 @@ import CheckOut from "./pages/CheckOut";
 import Payment from "./pages/Payment";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import Login from "./pages/Login";
-
+import Signup from './pages/Signup';
 
 function App() {
     const dispatch = useDispatch();
@@ -22,6 +22,7 @@ function App() {
         dispatch(filterBarActions.fetchFilterBarData());
 
     }, [dispatch]);
+
 
     useEffect(() => {
         if (Object.keys(bodyData).length > 0) {
@@ -39,6 +40,7 @@ function App() {
             <Route path="/payment" element={<Payment/>}/>
             <Route path="/order-confirmation" element={<OrderConfirmation/>}/>
             <Route path="/login" element={<Login/>}/>
+            <Route path="/signup" element={<Signup/>}/>
 
         </Routes>
     );

@@ -54,10 +54,11 @@ const SmallScreenHeader = () => {
     }, []);
 
 
-    const firstName = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).firstName : null;
+    const firstName = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')): null;
     const handleSignInClick = () => {
         if (firstName) {
             localStorage.removeItem('user');
+            localStorage.removeItem('token');
             localStorage.removeItem('bag');
             localStorage.removeItem('saveForLater');
 
